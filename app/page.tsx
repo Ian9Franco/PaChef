@@ -6,9 +6,9 @@ import { useState } from "react"
 import { BarChart3, Shield, TrendingUp, User } from "lucide-react"
 
 const DEMO_USERS = [
-  { id: "u1", nombre: "Carlos Ramírez", rol: "Admin", icon: Shield, color: "bg-brand-orange", description: "Acceso total. Gestión y configuración." },
-  { id: "u2", nombre: "María González", rol: "Manager", icon: TrendingUp, color: "bg-brand-blue", description: "Dashboard corporativo y rankings." },
-  { id: "u3", nombre: "Andrés Torres", rol: "Empleado", icon: User, color: "bg-brand-dark", description: "Vista personal y estadísticas propias." },
+  { id: "u1", nombre: "ChangoNocturno", rol: "Admin", icon: Shield, color: "bg-brand-orange", description: "Acceso total. Gestión y configuración." },
+  { id: "u2", nombre: "Castolo", rol: "Manager", icon: TrendingUp, color: "bg-brand-blue", description: "Dashboard corporativo y rankings." },
+  { id: "u3", nombre: "Niellendner", rol: "Empleado", icon: User, color: "bg-brand-dark", description: "Vista personal y estadísticas propias." },
 ]
 
 export default function LoginPage() {

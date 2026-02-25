@@ -72,9 +72,9 @@ export interface PlayerStats {
 // ─── Initial mock data ────────────────────────────────────────────────────────
 
 const INITIAL_PROFILES: Profile[] = [
-  { id: 'u1', nombre_completo: 'Carlos Ramírez', rol: 'admin', creado_en: '2024-01-15', cargo: 'Director' },
-  { id: 'u2', nombre_completo: 'María González', rol: 'manager', creado_en: '2024-02-01', cargo: 'Gerente de Producción' },
-  { id: 'u3', nombre_completo: 'Andrés Torres', rol: 'empleado', creado_en: '2024-03-10', cargo: 'Operario Senior' },
+  { id: 'u1', nombre_completo: 'ChangoNocturno', rol: 'admin', creado_en: '2024-01-15', cargo: 'Director' },
+  { id: 'u2', nombre_completo: 'Castolo', rol: 'manager', creado_en: '2024-02-01', cargo: 'Gerente de Producción' },
+  { id: 'u3', nombre_completo: 'Niellendner', rol: 'empleado', creado_en: '2024-03-10', cargo: 'Operario Senior' },
   { id: 'u4', nombre_completo: 'Lucía Mendoza', rol: 'empleado', creado_en: '2024-03-15', cargo: 'Operaria' },
   { id: 'u5', nombre_completo: 'Diego Flores', rol: 'empleado', creado_en: '2024-04-01', cargo: 'Operario Junior' },
   { id: 'u6', nombre_completo: 'Valentina Cruz', rol: 'empleado', creado_en: '2024-04-10', cargo: 'Operaria Senior' },
