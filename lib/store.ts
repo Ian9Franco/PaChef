@@ -76,12 +76,12 @@ const INITIAL_PROFILES: Profile[] = [
   { id: 'u2', nombre_completo: 'Castolo', rol: 'manager', creado_en: '2024-02-01', cargo: 'Capitán de Campo' },
   { id: 'u3', nombre_completo: 'Niellendner', rol: 'empleado', creado_en: '2024-03-10', cargo: 'Operario Senior' },
   { id: 'u4', nombre_completo: 'Diego Forlán', rol: 'empleado', creado_en: '2024-03-15', cargo: 'Goleador Elegante' },
-  { id: 'u5', nombre_completo: 'Pupi Zanetti', rol: 'empleado', creado_en: '2024-04-01', cargo: 'Lateral Infatigable' },
+  { id: 'u5', nombre_completo: 'Pupi Zanetti', rol: 'manager', creado_en: '2024-04-01', cargo: 'Lateral Infatigable' },
   { id: 'u6', nombre_completo: 'Marcelo', rol: 'empleado', creado_en: '2024-04-10', cargo: 'Lateral Mágico' },
-  { id: 'u7', nombre_completo: 'Van Basten', rol: 'empleado', creado_en: '2024-04-15', cargo: 'Goleador Elegante' },
+  { id: 'u7', nombre_completo: 'Van Basten', rol: 'manager', creado_en: '2024-04-15', cargo: 'Goleador Elegante' },
   { id: 'u8', nombre_completo: 'Wayne Rooney', rol: 'empleado', creado_en: '2024-04-20', cargo: 'Bulls Terrier' },
   { id: 'u9', nombre_completo: 'Ashley Cole', rol: 'empleado', creado_en: '2024-05-01', cargo: 'Muro Defensivo' },
-  { id: 'u10', nombre_completo: 'Andrés Iniesta', rol: 'empleado', creado_en: '2024-05-10', cargo: 'Cerebro' },
+  { id: 'u10', nombre_completo: 'Andrés Iniesta', rol: 'manager', creado_en: '2024-05-10', cargo: 'Cerebro' },
   { id: 'u11', nombre_completo: 'Pedro León', rol: 'empleado', creado_en: '2024-05-15', cargo: 'Especialista en Centros' },
   { id: 'u12', nombre_completo: 'Ogro Fabbiani', rol: 'empleado', creado_en: '2024-06-01', cargo: 'Tanque Creativo' },
   { id: 'u13', nombre_completo: 'Pisculichi', rol: 'empleado', creado_en: '2024-06-05', cargo: 'Guante en el Pie' },
@@ -108,6 +108,11 @@ const INITIAL_SESSIONS: WorkSession[] = [
   { id: 6, empleado_id: 'u3', producto_id: 3, iniciado_en: '2025-02-02T08:00:00', finalizado_en: '2025-02-02T09:50:00', total_segundos: 6600 },
   { id: 7, empleado_id: 'u4', producto_id: 4, iniciado_en: '2025-02-02T10:00:00', finalizado_en: '2025-02-02T10:06:00', total_segundos: 360 },
   { id: 8, empleado_id: 'u6', producto_id: 1, iniciado_en: '2025-02-03T08:00:00', finalizado_en: '2025-02-03T08:27:00', total_segundos: 1620 },
+  { id: 9, empleado_id: 'u7', producto_id: 3, iniciado_en: '2025-02-03T09:00:00', finalizado_en: '2025-02-03T10:00:00', total_segundos: 3600 },
+  { id: 10, empleado_id: 'u8', producto_id: 2, iniciado_en: '2025-02-03T10:15:00', finalizado_en: '2025-02-03T10:28:00', total_segundos: 780 },
+  { id: 11, empleado_id: 'u10', producto_id: 3, iniciado_en: '2025-02-03T11:00:00', finalizado_en: '2025-02-03T11:55:00', total_segundos: 3300 },
+  { id: 12, empleado_id: 'u13', producto_id: 4, iniciado_en: '2025-02-03T12:00:00', finalizado_en: '2025-02-03T12:04:00', total_segundos: 240 },
+  { id: 13, empleado_id: 'u17', producto_id: 1, iniciado_en: '2025-02-03T13:00:00', finalizado_en: '2025-02-03T13:35:00', total_segundos: 2100 },
 ]
 
 const INITIAL_EVALUATIONS: Evaluation[] = [
@@ -115,6 +120,17 @@ const INITIAL_EVALUATIONS: Evaluation[] = [
   { id: 2, empleado_id: 'u4', puntuacion_resolucion: 72, puntuacion_cumplimiento: 80, tiempo_inactivo_segundos: 2400, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
   { id: 3, empleado_id: 'u5', puntuacion_resolucion: 65, puntuacion_cumplimiento: 70, tiempo_inactivo_segundos: 3600, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
   { id: 4, empleado_id: 'u6', puntuacion_resolucion: 91, puntuacion_cumplimiento: 88, tiempo_inactivo_segundos: 900, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
+  { id: 5, empleado_id: 'u7', puntuacion_resolucion: 85, puntuacion_cumplimiento: 90, tiempo_inactivo_segundos: 1500, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
+  { id: 6, empleado_id: 'u8', puntuacion_resolucion: 70, puntuacion_cumplimiento: 75, tiempo_inactivo_segundos: 3000, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
+  { id: 7, empleado_id: 'u9', puntuacion_resolucion: 80, puntuacion_cumplimiento: 82, tiempo_inactivo_segundos: 1800, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
+  { id: 8, empleado_id: 'u10', puntuacion_resolucion: 95, puntuacion_cumplimiento: 95, tiempo_inactivo_segundos: 600, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
+  { id: 9, empleado_id: 'u11', puntuacion_resolucion: 65, puntuacion_cumplimiento: 68, tiempo_inactivo_segundos: 4000, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
+  { id: 10, empleado_id: 'u12', puntuacion_resolucion: 60, puntuacion_cumplimiento: 62, tiempo_inactivo_segundos: 4500, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
+  { id: 11, empleado_id: 'u13', puntuacion_resolucion: 88, puntuacion_cumplimiento: 85, tiempo_inactivo_segundos: 1100, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
+  { id: 12, empleado_id: 'u14', puntuacion_resolucion: 92, puntuacion_cumplimiento: 88, tiempo_inactivo_segundos: 800, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
+  { id: 13, empleado_id: 'u15', puntuacion_resolucion: 75, puntuacion_cumplimiento: 70, tiempo_inactivo_segundos: 2500, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
+  { id: 14, empleado_id: 'u16', puntuacion_resolucion: 78, puntuacion_cumplimiento: 80, tiempo_inactivo_segundos: 2200, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
+  { id: 15, empleado_id: 'u17', puntuacion_resolucion: 90, puntuacion_cumplimiento: 92, tiempo_inactivo_segundos: 950, inicio_periodo: '2025-02-01', fin_periodo: '2025-02-28' },
 ]
 
 const INITIAL_NOTES: InternalNote[] = [
