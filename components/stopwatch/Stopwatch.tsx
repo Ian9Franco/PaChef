@@ -30,48 +30,52 @@ export function Stopwatch() {
   }
 
   return (
-    <div className="glass-panel p-6 rounded-2xl flex flex-col items-center space-y-6">
-      <div className="text-6xl font-mono tracking-widest text-primary drop-shadow-[0_0_8px_rgba(var(--primary),0.5)]">
+    <div className="glass-panel p-6 rounded-3xl flex flex-col items-center space-y-8 transition-all hover:shadow-2xl hover:shadow-primary/10">
+      <div className={`text-6xl font-mono tracking-widest transition-colors duration-500 drop-shadow-[0_0_12px_rgba(var(--primary),0.8)] ${isActive ? "text-secondary scale-105" : "text-primary hover:scale-[1.02]"}`}>
         {formatTime(seconds)}
       </div>
 
-      <div className="flex space-x-4">
+      <div className="flex space-x-6 items-center">
         {!isActive ? (
           <Button 
             onClick={() => setIsActive(true)} 
             size="lg" 
-            className="rounded-full w-16 h-16 shadow-lg shadow-primary/20"
+            className="rounded-full w-20 h-20 shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all hover:scale-110 active:scale-95 bg-gradient-to-br from-primary to-primary/80"
           >
-            <Play fill="currentColor" className="w-8 h-8 ml-1" />
+            <Play fill="currentColor" className="w-10 h-10 ml-2" />
           </Button>
         ) : (
           <Button 
             onClick={() => setIsActive(false)} 
             size="lg" 
             variant="secondary"
-            className="rounded-full w-16 h-16 shadow-lg"
+            className="rounded-full w-20 h-20 shadow-xl shadow-secondary/30 hover:shadow-secondary/50 transition-all hover:scale-110 active:scale-95 bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground"
           >
-            <Pause fill="currentColor" className="w-8 h-8" />
+            <Pause fill="currentColor" className="w-10 h-10" />
           </Button>
         )}
         
-        <Button 
-          onClick={() => {
-            setIsActive(false)
-            setSeconds(0)
-            // Emitir evento de stop a la DB después
-          }} 
-          size="lg" 
-          variant="destructive"
-          className="rounded-full w-16 h-16 shadow-lg shadow-destructive/20"
-          disabled={!isActive && seconds === 0}
-        >
-          <Square fill="currentColor" className="w-6 h-6" />
-        </Button>
+        <div className={`transition-all duration-300 ${!isActive && seconds === 0 ? "opacity-0 scale-50 w-0" : "opacity-100 scale-100 w-16"}`}>
+          <Button 
+            onClick={() => {
+              setIsActive(false)
+              setSeconds(0)
+              // Emitir evento de stop a la DB después
+            }} 
+            size="icon" 
+            variant="destructive"
+            className="rounded-full w-16 h-16 shadow-lg shadow-destructive/30 hover:shadow-destructive/50 transition-all hover:scale-110 active:scale-95 bg-gradient-to-br from-destructive to-destructive/80"
+            disabled={!isActive && seconds === 0}
+          >
+            <Square fill="currentColor" className="w-7 h-7" />
+          </Button>
+        </div>
       </div>
 
-      <div className="text-sm text-muted-foreground font-medium uppercase tracking-wider">
-        {isActive ? "Midiendo Tiempo" : "Listo para arrancar"}
+      <div className="text-sm font-bold uppercase tracking-widest h-5">
+        <span className={`transition-all duration-300 ${isActive ? "text-secondary animate-pulse" : "text-muted-foreground"}`}>
+          {isActive ? "Midiendo Tiempo..." : "Listo para arrancar"}
+        </span>
       </div>
     </div>
   )
