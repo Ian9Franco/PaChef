@@ -211,7 +211,30 @@ lib/
 - **Vistas Materializadas:** Utilizadas para métricas globales pesadas para evitar cuellos de botella en cálculos en tiempo real.
 - **Cálculo Perezoso (Lazy):** Métricas calculadas por período o bajo demanda en lugar de en cada renderizado.
 
-## 9. Roadmap Futuro (Escalabilidad)
+## 9. Estado de Implementación (Progreso Actual)
+
+### ✅ Finalizado
+
+- **Rebranding:** Marca unificada bajo **PaChef | Statline**.
+- **UX Gamificada:** Interfaz mobile-first con diseño de alto contraste (Crema/Naranja/Azul Oscuro).
+- **Sistema de Guías:** Onboarding interactivo con localización al castellano argentino ("Driver.js").
+- **Dashboard Core:**
+  - Login con perfiles de demo (Admin, Manager, Empleado).
+  - Sidebar dinámico y colapsable con control de roles.
+  - Vistas de Empleados, Productos, Sesiones y Configuración.
+- **Gestión de Personal:** Plantel precargado con leyendas del fútbol clásico y estadísticas iniciales.
+- **Lógica de Métricas:** Sistema de cálculo de Velocidad, Productividad y Puntaje Global (simulado en el frontend).
+
+### ⏳ Pendiente / En Desarrollo
+
+- **Persistencia Real:** Integración con base de datos real (Supabase PostgreSQL). Actualmente se usa `sessionStorage`.
+- **Autenticación:** Migrar del sistema de perfiles mocked a **Supabase Auth**.
+- **Tiempo Real:** Implementar **Supabase Realtime** para la sincronización del cronómetro entre dispositivos.
+- **Seguridad (RLS):** Configurar políticas de seguridad en la base de datos para restringir acceso por roles.
+- **Backend Logics:** Migrar el cálculo de métricas de JS a Vistas SQL y Funciones en el servidor.
+- **Roadmap Futuro:** Exportación de reportes (PDF/CSV), alertas y análisis con IA.
+
+## 10. Roadmap Futuro (Escalabilidad)
 
 - Multitenencia (múltiples equipos/empresas).
 - Exportación a CSV/PDF.
