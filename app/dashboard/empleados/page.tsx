@@ -86,6 +86,7 @@ export default function EmpleadosPage() {
         </div>
         {isAdmin && (
           <button
+            id="empleados-new-btn"
             onClick={openCreate}
             className="flex items-center gap-2 text-sm font-semibold bg-brand-orange text-brand-cream px-4 py-2 rounded-lg hover:bg-brand-orange/90 transition-colors flex-shrink-0"
           >
@@ -96,7 +97,7 @@ export default function EmpleadosPage() {
       </div>
 
       {/* Search */}
-      <div className="relative mb-5">
+      <div id="empleados-search" className="relative mb-5">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
         <input
           type="text"
@@ -108,7 +109,7 @@ export default function EmpleadosPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-card rounded-2xl border border-border overflow-hidden">
+      <div id="empleados-table" className="bg-card rounded-2xl border border-border overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

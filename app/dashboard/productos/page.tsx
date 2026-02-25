@@ -90,7 +90,7 @@ export default function ProductosPage() {
       </div>
 
       {/* Search */}
-      <div className="relative mb-5">
+      <div id="productos-search" className="relative mb-5">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
         <input
           type="text"
@@ -102,7 +102,7 @@ export default function ProductosPage() {
       </div>
 
       {/* Product cards */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div id="productos-grid" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {filtered.map(product => (
           <div
             key={product.id}

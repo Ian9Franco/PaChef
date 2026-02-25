@@ -94,7 +94,7 @@ export default function ConfiguracionPage() {
       )}
 
       {/* Weights card */}
-      <div className="bg-card rounded-2xl border border-border p-5 mb-4">
+      <div id="config-weights" className="bg-card rounded-2xl border border-border p-5 mb-4">
         <h2 className="text-sm font-semibold text-foreground mb-1">Pesos del Puntaje Global</h2>
         <p className="text-xs text-muted-foreground mb-5">La suma de todos los pesos debe ser exactamente 1.00 (100%)</p>
 
@@ -147,7 +147,7 @@ export default function ConfiguracionPage() {
       </div>
 
       {/* Preview */}
-      <div className="bg-card rounded-2xl border border-border p-5 mb-4">
+      <div id="config-preview" className="bg-card rounded-2xl border border-border p-5 mb-4">
         <h2 className="text-sm font-semibold text-foreground mb-1">Vista Previa</h2>
         <p className="text-xs text-muted-foreground mb-4">Con las métricas de ejemplo: Vel 85 · Prod 78 · Res 90 · Cmp 88</p>
         <div className="flex items-center justify-between">

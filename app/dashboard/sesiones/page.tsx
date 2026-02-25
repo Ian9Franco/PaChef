@@ -70,7 +70,7 @@ export default function SesionesPage() {
       </div>
 
       {/* Cronometer card */}
-      <div className="bg-brand-dark rounded-2xl p-6 mb-6 relative overflow-hidden">
+      <div id="sesiones-timer" className="bg-brand-dark rounded-2xl p-6 mb-6 relative overflow-hidden">
         {/* Decorative ring */}
         <div className="absolute -right-8 -top-8 w-40 h-40 rounded-full border-2 border-brand-blue/20 pointer-events-none" />
         <div className="absolute -right-4 -top-4 w-24 h-24 rounded-full border-2 border-brand-orange/20 pointer-events-none" />
@@ -161,7 +161,7 @@ export default function SesionesPage() {
       </div>
 
       {/* Sessions history */}
-      <div>
+      <div id="sesiones-history">
         <h2 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
           <Clock className="w-4 h-4 text-muted-foreground" />
           Historial de sesiones

@@ -15,8 +15,8 @@ export function GuideButton() {
   if (!pathname.startsWith("/dashboard")) return null
 
   const handleStartTour = () => {
-    const role = currentUser.rol as "admin" | "manager" | "empleado"
-    initTour(role)
+    const role = currentUser.rol
+    initTour(role, pathname)
   }
 
   return (
