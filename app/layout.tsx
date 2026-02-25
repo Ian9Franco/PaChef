@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'STATLINE — Rendimiento en Tiempo Real',
   description: 'Plataforma de medición y análisis del rendimiento de producción interna en tiempo real.',
-  generator: 'v0.app',
+  generator: 'IanPontorno',
 }
 
 export const viewport: Viewport = {

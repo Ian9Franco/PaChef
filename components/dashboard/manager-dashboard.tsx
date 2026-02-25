@@ -88,7 +88,7 @@ export function ManagerDashboard() {
       </div>
 
       {/* KPIs */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+      <div id="manager-kpis" className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
         <KpiCard label="Total Empleados" value={employees.length} icon={Users} color="brand-blue" />
         <KpiCard label="Productos Activos" value={activeProducts.length} icon={Package} color="brand-orange" />
         <KpiCard label="Sesiones Totales" value={completedSessions.length} icon={Timer} color="brand-dark" />
@@ -96,7 +96,7 @@ export function ManagerDashboard() {
       </div>
 
       {/* View tabs */}
-      <div className="flex gap-1 mb-5 bg-muted rounded-xl p-1 w-fit">
+      <div id="manager-view-tabs" className="flex gap-1 mb-5 bg-muted rounded-xl p-1 w-fit">
         {(["overview", "products", "rankings"] as const).map(v => (
           <button
             key={v}

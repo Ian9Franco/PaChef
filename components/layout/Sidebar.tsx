@@ -9,6 +9,7 @@ import {
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useState } from "react"
+import { GuideButton } from "@/components/layout/guide-button"
 
 const NAV_ITEMS = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard", roles: ["admin", "manager", "empleado"] },
@@ -97,6 +98,7 @@ export function Sidebar() {
 
       {/* Bottom */}
       <div className="p-3 border-t border-sidebar-border flex flex-col gap-1">
+        <GuideButton />
         <button
           onClick={handleLogout}
           className={cn(

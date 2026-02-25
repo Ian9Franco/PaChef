@@ -64,7 +64,7 @@ export function AdminDashboard() {
       </div>
 
       {/* KPI Row */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+      <div id="admin-kpis" className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
         <KpiCard label="Empleados" value={employees.length} icon={Users} color="brand-blue" />
         <KpiCard label="Productos Activos" value={activeProducts.length} icon={Package} color="brand-orange" />
         <KpiCard label="Sesiones Completadas" value={completedSessions.length} icon={Timer} color="brand-dark" />
@@ -74,7 +74,7 @@ export function AdminDashboard() {
       {/* Player Cards Grid */}
       <div className="mb-6">
         <h2 className="text-base font-semibold text-foreground mb-3">Tarjetas de Jugador</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        <div id="admin-player-cards" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {employeeStats.map(({ profile, stats }, idx) => (
             <button
               key={profile.id}
@@ -97,7 +97,7 @@ export function AdminDashboard() {
       {/* Bottom grid: chart + notes */}
       <div className="grid md:grid-cols-2 gap-4">
         {/* Bar Chart */}
-        <div className="bg-card rounded-2xl border border-border p-5">
+        <div id="admin-ranking-chart" className="bg-card rounded-2xl border border-border p-5">
           <h3 className="text-sm font-semibold text-foreground mb-4">Ranking de Rendimiento</h3>
           <div className="h-48">
             <ResponsiveContainer width="100%" height="100%">

@@ -82,9 +82,9 @@ export function EmpleadoDashboard() {
       </div>
 
       {/* Top: player card + KPIs */}
-      <div className="grid md:grid-cols-[auto_1fr] gap-5 mb-6">
+      <div className="grid md:grid-[auto_1fr] gap-5 mb-6">
         {/* My card */}
-        <div className="w-full md:w-52 flex-shrink-0">
+        <div id="empleado-stats" className="w-full md:w-52 flex-shrink-0">
           <PlayerCard profile={currentUser} stats={myStats} />
         </div>
 
@@ -133,7 +133,7 @@ export function EmpleadoDashboard() {
       {/* Comparison radar */}
       {comparisonData.length > 0 && (
         <div className="grid md:grid-cols-2 gap-4 mb-5">
-          <div className="bg-card rounded-2xl border border-border p-5">
+          <div id="empleado-radar" className="bg-card rounded-2xl border border-border p-5">
             <h3 className="text-sm font-semibold text-foreground mb-2">Radar vs. Equipo</h3>
             <p className="text-xs text-muted-foreground mb-3">Comparación anónima con el promedio</p>
             <div className="h-52">
