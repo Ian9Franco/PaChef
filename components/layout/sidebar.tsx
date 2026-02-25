@@ -100,7 +100,7 @@ export function Sidebar() {
 
       {/* Bottom */}
       <div className="p-3 border-t border-sidebar-border flex flex-col gap-1">
-        <GuideButton />
+        <GuideButton onClick={() => setMobileOpen(false)} collapsed={collapsed} />
         <button
           onClick={handleLogout}
           className={cn(

@@ -8,6 +8,7 @@ import { Users, Package, Timer, TrendingUp, Plus } from "lucide-react"
 import Link from "next/link"
 import { useMemo, useState } from "react"
 import { NotesPanel } from "@/components/dashboard/notes-panel"
+import { cn } from "@/lib/utils"
 
 export function AdminDashboard() {
   const profiles = useAppStore(s => s.profiles)
@@ -16,6 +17,8 @@ export function AdminDashboard() {
   const evaluations = useAppStore(s => s.evaluations)
   const config = useAppStore(s => s.config)
   const [selectedEmployee, setSelectedEmployee] = useState<string | null>(null)
+
+  const [showAllCards, setShowAllCards] = useState(false)
 
   const employees = profiles.filter(p => p.rol === "empleado")
   const activeProducts = products.filter(p => p.activo)
@@ -30,6 +33,8 @@ export function AdminDashboard() {
     })).sort((a, b) => b.stats.puntuacion_global - a.stats.puntuacion_global),
     [employees, sessions, evaluations, products, config]
   )
+
+  const visibleStats = showAllCards ? employeeStats : employeeStats.slice(0, 3)
 
   const avgScore = employeeStats.length > 0
     ? Math.round(employeeStats.reduce((a, e) => a + e.stats.puntuacion_global, 0) / employeeStats.length)
@@ -46,10 +51,20 @@ export function AdminDashboard() {
     ? employeeStats.find(e => e.profile.id === selectedEmployee)
     : null
 
+  const handleSelectEmployee = (id: string) => {
+    const isSelecting = selectedEmployee !== id
+    setSelectedEmployee(isSelecting ? id : null)
+    if (isSelecting && window.innerWidth < 768) {
+      setTimeout(() => {
+        document.getElementById("admin-details-section")?.scrollIntoView({ behavior: "smooth", block: "start" })
+      }, 100)
+    }
+  }
+
   return (
-    <div className="p-4 md:p-6 max-w-7xl mx-auto">
+    <div className="p-4 md:p-6 max-w-7xl mx-auto flex flex-col gap-6">
       {/* Header */}
-      <div className="mb-6 flex items-start justify-between gap-4">
+      <div className="flex items-start justify-between gap-4 order-1">
         <div>
           <h1 className="text-2xl font-bold text-foreground tracking-tight">Panel de Admin</h1>
           <p className="text-sm text-muted-foreground mt-0.5">Vista completa del equipo en tiempo real</p>
@@ -64,7 +79,7 @@ export function AdminDashboard() {
       </div>
 
       {/* KPI Row */}
-      <div id="admin-kpis" className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+      <div id="admin-kpis" className="grid grid-cols-2 lg:grid-cols-4 gap-3 order-2">
         <KpiCard label="Empleados" value={employees.length} icon={Users} color="brand-blue" />
         <KpiCard label="Productos Activos" value={activeProducts.length} icon={Package} color="brand-orange" />
         <KpiCard label="Sesiones Completadas" value={completedSessions.length} icon={Timer} color="brand-dark" />
@@ -72,18 +87,28 @@ export function AdminDashboard() {
       </div>
 
       {/* Player Cards Grid */}
-      <div className="mb-6">
-        <h2 className="text-base font-semibold text-foreground mb-3">Tarjetas de Jugador</h2>
+      <div className={cn("order-3 w-full transition-all", selectedEmployee && "max-md:order-4")}>
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-base font-semibold text-foreground">Tarjetas de Jugador</h2>
+          {employeeStats.length > 3 && (
+            <button
+              onClick={() => setShowAllCards(!showAllCards)}
+              className="text-xs font-medium text-brand-blue hover:text-brand-blue/80 px-2 py-1 bg-brand-blue/10 rounded-md transition-colors"
+            >
+              {showAllCards ? "Ver menos" : `Ver todos (${employeeStats.length})`}
+            </button>
+          )}
+        </div>
         <div id="admin-player-cards" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-          {employeeStats.map(({ profile, stats }, idx) => (
+          {visibleStats.map(({ profile, stats }, idx) => (
             <button
               key={profile.id}
               className="text-left"
-              onClick={() => setSelectedEmployee(selectedEmployee === profile.id ? null : profile.id)}
+              onClick={() => handleSelectEmployee(profile.id)}
             >
               <div className={`relative transition-transform duration-200 ${selectedEmployee === profile.id ? "scale-105" : "hover:scale-102"}`}>
                 {idx === 0 && (
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-10 bg-yellow-400 text-yellow-900 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-10 bg-yellow-400 text-yellow-900 text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
                     #1
                   </div>
                 )}
@@ -95,7 +120,7 @@ export function AdminDashboard() {
       </div>
 
       {/* Bottom grid: chart + notes */}
-      <div className="grid md:grid-cols-2 gap-4">
+      <div id="admin-details-section" className={cn("grid md:grid-cols-2 gap-4 order-4 w-full transition-all", selectedEmployee && "max-md:order-3 max-md:mt-2")}>
         {/* Bar Chart */}
         <div id="admin-ranking-chart" className="bg-card rounded-2xl border border-border p-5">
           <h3 className="text-sm font-semibold text-foreground mb-4">Ranking de Rendimiento</h3>

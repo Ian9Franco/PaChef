@@ -115,9 +115,9 @@ export default function SesionesPage() {
                   onChange={e => setSelectedEmployee(e.target.value)}
                   className="w-full text-sm border border-brand-blue/30 rounded-xl px-3 py-2.5 bg-brand-blue/20 text-brand-cream focus:outline-none focus:border-brand-orange"
                 >
-                  <option value="">Seleccionar empleado...</option>
+                  <option value="" className="bg-brand-dark text-brand-cream">Seleccionar empleado...</option>
                   {employees.map(e => (
-                    <option key={e.id} value={e.id}>{e.nombre_completo}</option>
+                    <option key={e.id} value={e.id} className="bg-brand-dark text-brand-cream">{e.nombre_completo}</option>
                   ))}
                 </select>
               )}
@@ -126,9 +126,9 @@ export default function SesionesPage() {
                 onChange={e => setSelectedProduct(e.target.value ? parseInt(e.target.value) : null)}
                 className="w-full text-sm border border-brand-blue/30 rounded-xl px-3 py-2.5 bg-brand-blue/20 text-brand-cream focus:outline-none focus:border-brand-orange"
               >
-                <option value="">Seleccionar producto...</option>
+                <option value="" className="bg-brand-dark text-brand-cream">Seleccionar producto...</option>
                 {activeProducts.map(p => (
-                  <option key={p.id} value={p.id}>{p.nombre} ({formatDuration(p.tiempo_estandar_segundos)} std)</option>
+                  <option key={p.id} value={p.id} className="bg-brand-dark text-brand-cream">{p.nombre} ({formatDuration(p.tiempo_estandar_segundos)} std)</option>
                 ))}
               </select>
               <button
@@ -192,8 +192,8 @@ export default function SesionesPage() {
                   <span className={cn(
                     "text-xs font-bold px-1.5 py-0.5 rounded font-mono",
                     eff >= 100 ? "bg-emerald-100 text-emerald-700" :
-                    eff >= 75 ? "bg-yellow-100 text-yellow-700" :
-                    "bg-red-100 text-red-600"
+                      eff >= 75 ? "bg-yellow-100 text-yellow-700" :
+                        "bg-red-100 text-red-600"
                   )}>
                     {eff}%
                   </span>

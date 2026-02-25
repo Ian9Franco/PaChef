@@ -5,7 +5,9 @@ import { usePathname } from "next/navigation"
 import { initTour } from "@/lib/tour-steps"
 import { useAppStore } from "@/lib/store"
 
-export function GuideButton() {
+import { cn } from "@/lib/utils"
+
+export function GuideButton({ onClick, collapsed }: { onClick?: () => void, collapsed?: boolean }) {
   const pathname = usePathname()
   const currentUser = useAppStore(s => s.currentUser)
 
@@ -17,15 +19,19 @@ export function GuideButton() {
   const handleStartTour = () => {
     const role = currentUser.rol
     initTour(role, pathname)
+    onClick?.()
   }
 
   return (
     <button
       onClick={handleStartTour}
-      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent/50 transition-all duration-150 w-full"
+      className={cn(
+        "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent/50 transition-all duration-150 w-full",
+        collapsed ? "justify-center px-2" : ""
+      )}
     >
       <HelpCircle className="w-4 h-4 flex-shrink-0" />
-      <span className="md:block hidden group-[.w-14]:hidden">Guía Interactiva</span>
+      {!collapsed && <span>Guía Interactiva</span>}
     </button>
   )
 }
